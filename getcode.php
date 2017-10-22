@@ -1,8 +1,8 @@
 <?php
 	if (isset($_GET['filename']) && isset($_GET['password'])){
-		$host = "hiddenduetosecurityreasons";
-		$username = "hiddenduetosecurityreasons";
-		$password = "hiddenduetosecurityreasons";
+		$host = "Yours host name";
+		$username = "Yours database's username";
+		$password = "Yours database's password";
 		$link = mysqli_connect($host, $username, $password);
 		mysqli_select_db($link,"hiddenduetosecurityreasons");
 		$command = "select * from data where savedname = '".$_GET['filename']."' and password = '".$_GET['password']."';";
