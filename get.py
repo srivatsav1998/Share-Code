@@ -1,8 +1,8 @@
 import os
 import sys
 import requests
-filename = sys.argv[1] 
-password = str(raw_input("Enter the password for the file"))
+filename = sys.argv[1]
+password = str(raw_input("Enter the file's password: "))
 if (password == ""):
     password = "null"
 r = requests.post("http://sharecode.co.nf/getcode.php?filename="+filename+"&password="+password+"&getname=true")
@@ -15,12 +15,10 @@ flag = True
 for i in os.listdir(os.getcwd()):
 	if (i == localname):
 		print "A file with the name " + localname + " already exists"
-		newname = str(raw_input("Enter new file name "))
+		newname = str(raw_input("Enter the newname for the file: "))
 		if (newname != ""):
 			localname = newname
 		break
 file = open(localname,'w+')
 file.write(r.text)
 file.close()
-
-
